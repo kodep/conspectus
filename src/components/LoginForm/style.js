@@ -5,7 +5,6 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  background-color: #CDCDD0;
   padding: 0;
   height: 100vh;
   margin: 0;
@@ -17,11 +16,15 @@ export const Form = styled.form`
 
 `;
 
+export const Title = styled.div`
+  margin-bottom: 200px;
+  font-family: 'Satisfy';
+`;
+
 export const Label = styled.label`
   display: flex;
   justify-content: center;
-  font-size: 25px;
-  /* color: white; */
+  font-size: 60px;
 `;
 
 export const ContainerForm = styled.div`
@@ -31,28 +34,55 @@ export const ContainerForm = styled.div`
 `;
 
 export const Action = styled.input`
-  margin: 5px 0 5px 0;
+  margin: 0 0 15px 0;
   font-size: 25px;
   border-radius: 8px;
-  border-color: black;
+  border-color: #9555af;
+  ::placeholder{
+    font-size: 18px;
+    padding: 0 0 0 10px;
+  }
 `;
 
 export const SubmitButton = styled.button`
-  font-size: 25px;
-  padding: 5px 60px;
-  /* width: 200px; */
-  /* margin-top: 5px; */
-  display: flex;
-  justify-content: center;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 0;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #ffffff;
+  background-color: #9555af;
+  :active{
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+  :hover,
+  :focus {
+  color: #9555af;
+  border-color: currentColor;
+  background-color: white;
+  }
 `;
 
-export const PendingDiv = styled.div`
+export const ValidatePending = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   color: orange;
 `;
 
-export const SuccessDiv = styled.div`
+export const ValidateSuccess = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   color: green;
 `;
-export const ErrorDiv = styled.div`
+export const ValidateError = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   color: red;
 `;

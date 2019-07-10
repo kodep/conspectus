@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../redux/reducer/reducer'
-import { Container, Form, Label, ContainerForm, Action, SubmitButton, PendingDiv, SuccessDiv, ErrorDiv } from './style';
+import { Container, Form, Label, ContainerForm, Action, SubmitButton, ValidatePending, ValidateSuccess, ValidateError, Title } from './style';
 
 class LoginForm extends PureComponent {
 
@@ -18,19 +18,16 @@ class LoginForm extends PureComponent {
       <Container onSubmit={this.onSubmit}>
         <Form name="LoginForm">
           <ContainerForm>
-            <Label>Логин</Label>
-            <Action type="email" name="email" onChange={e => this.setState({email: e.target.value})}/>
-            <Label>Пароль</Label>
-            <Action type="password" name="password" onChange={e => this.setState({password: e.target.value})}/>
-            {isLoginPending && <PendingDiv>Авторизация</PendingDiv>}
-            {isLoginSuccess && <SuccessDiv>Авторизация прошла успешно</SuccessDiv>}
-            {loginError && <ErrorDiv>{loginError.message}</ErrorDiv>}
-            <SubmitButton>Войти</SubmitButton>
+            <Title>
+            <Label>Cospectus</Label>
+            </Title>
+            <Action type="email" name="email" placeholder="Login" onChange={e => this.setState({email: e.target.value})}/>
+            <Action type="password" name="password" placeholder="Password" onChange={e => this.setState({password: e.target.value})}/>
+            {isLoginPending && <ValidatePending>Authorization</ValidatePending>}
+            {isLoginSuccess && <ValidateSuccess>Login was successful</ValidateSuccess>}
+            {loginError && <ValidateError>{loginError.message}</ValidateError>}
+            <SubmitButton>Sign in</SubmitButton>
           </ContainerForm>
-
-
-
-
         </Form>
       </Container>
     )

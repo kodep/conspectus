@@ -80,7 +80,7 @@ function sendLoginRequest(email, password) {
         return resolve(true);
       }
       else {
-        return reject(new Error('Неправильный логин или пароль'));
+        return reject(new Error('Incorrect login or password'));
       }
     }, 1000);
   })
