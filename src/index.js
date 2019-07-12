@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import LoginForm from './components/LoginForm'
+import LoginPage from './components/loginPage'
 
 ReactDOM.render(
   <Provider store={store}>
-    <LoginForm />
+    <LoginPage />
   </Provider>,
   document.getElementById('root'));

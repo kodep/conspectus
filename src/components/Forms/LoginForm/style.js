@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+// const STATUS_COLORS = Object.freeze({
+//   isLoginPending: "#F4AD46",
+//   isLoginSuccess: "#22AA48",
+//   loginError: "#D93B36"
+// });
+
 export const Container = styled.div`
   text-align: center;
 `;
@@ -33,14 +39,16 @@ export const ContainerForm = styled.div`
   align-items: center;
 `;
 
-export const Action = styled.input`
+export const Action = styled.div`
   margin: 0 0 15px 0;
-  font-size: 25px;
-  border-radius: 8px;
-  border-color: #9555af;
-  ::placeholder{
-    font-size: 18px;
-    padding: 0 0 0 10px;
+  input {
+    border-radius: 8px;
+    border-color: #9555af;
+    font-size: 25px;
+    ::placeholder{
+      font-size: 18px;
+      padding: 0 0 0 10px;
+    }
   }
 `;
 
@@ -86,3 +94,10 @@ export const ValidateError = styled.div`
   justify-content: flex-start;
   color: red;
 `;
+
+// export const Validate = styled.div`
+//   width: 100%;
+//   display: flex;
+//   justify-content: flex-start;
+//   color: ${props => STATUS_COLORS[props.color]};
+// `;
