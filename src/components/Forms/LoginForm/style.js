@@ -67,22 +67,9 @@ export const SubmitButton = styled.button`
   }
 `;
 
-export const ValidatePending = styled.div`
+export const ValidateMessage = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  color: orange;
-`;
-
-export const ValidateSuccess = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: green;
-`;
-export const ValidateError = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: red;
+  color: ${props => props.color};
 `;

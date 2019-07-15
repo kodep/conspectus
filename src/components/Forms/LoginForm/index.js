@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Container, Form, Label, ContainerForm, Action, SubmitButton, ValidatePending, ValidateSuccess, ValidateError, Title } from './style';
+import { Container, Form, Label, ContainerForm, Action, SubmitButton, ValidateMessage, Title } from './style';
 
 class LoginForm extends PureComponent {
 
@@ -22,9 +22,9 @@ class LoginForm extends PureComponent {
             <Action>
               <Field type="password" name="password" component="input" placeholder="Password" />
             </Action>
-            {isLoginPending && <ValidatePending>Authorization</ValidatePending>}
-            {isLoginSuccess && <ValidateSuccess>Login was successful</ValidateSuccess>}
-            {loginError && <ValidateError>{loginError}</ValidateError>}
+            {isLoginPending && <ValidateMessage color="orange">Authorization</ValidateMessage>}
+            {isLoginSuccess && <ValidateMessage color="green">Login was successful</ValidateMessage>}
+            {loginError && <ValidateMessage color="red">{loginError}</ValidateMessage>}
             <SubmitButton type="submit">Sign in</SubmitButton>
           </ContainerForm>
         </Form>
