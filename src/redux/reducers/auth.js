@@ -10,7 +10,7 @@ export default function auth(state = initialState, action) {
 
   switch (action.type) {
     case LOGIN_PENDING:
-      return { ...state, isLoginPending: true };
+      return { ...state, loginError: null, isLoginPending: true };
     case LOGIN_ERROR:
       return { ...state, loginError: action.payload, isLoginPending: false };
 

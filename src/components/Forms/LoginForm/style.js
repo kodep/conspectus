@@ -12,8 +12,6 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Sans';
-
 `;
 
 export const Title = styled.div`
