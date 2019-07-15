@@ -3,14 +3,11 @@ import { sendLoginRequest } from '../../api/SignIn';
 
 export function login(data) {
   return dispatch => {
-    dispatch({ type: LOGIN_PENDING, payload: data})
+    dispatch({ type: LOGIN_PENDING })
     return sendLoginRequest(data)
       .then(res => dispatch({ type: LOGIN_SUCCESS, payload: res}))
-      .catch(err => {
-        console.log('error', err)
-        return dispatch({ type: LOGIN_ERROR, payload: err})
-
-      })
+      .catch(err => dispatch({ type: LOGIN_ERROR, payload: err})
+      )
  }
 }
 

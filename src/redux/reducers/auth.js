@@ -15,7 +15,7 @@ export default function auth(state = initialState, action) {
       return { ...state, loginError: action.payload, isLoginPending: false };
 
     case LOGIN_SUCCESS:
-      return { ...state, isLoginSuccess: true, isLoginPending: false }
+      return { ...state, isLoginSuccess: action.payload, isLoginPending: false }
 
     default:
       return state;

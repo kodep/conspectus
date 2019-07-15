@@ -31,7 +31,7 @@ export const ContainerForm = styled.div`
   align-items: center;
 `;
 
-export const Action = styled.div`
+export const FieldWrapper = styled.div`
   margin: 0 0 15px 0;
   input {
     border-radius: 8px;

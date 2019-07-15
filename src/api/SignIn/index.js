@@ -1,5 +1,4 @@
 export function sendLoginRequest(data) {
-  console.log('email, password', data)
   const { email, password } = data
   return new Promise((resolve, reject) => {
     setTimeout(() => {

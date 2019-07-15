@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Container, Form, Label, ContainerForm, Action, SubmitButton, ValidateMessage, Title } from './style';
+import { Container, Form, Label, ContainerForm, FieldWrapper, SubmitButton, ValidateMessage, Title } from './style';
 
 class LoginForm extends PureComponent {
-
-  state = {};
 
   render() {
     const { handleSubmit, authData } = this.props;
@@ -16,12 +14,12 @@ class LoginForm extends PureComponent {
             <Title>
               <Label>Conspectus</Label>
             </Title>
-            <Action>
+            <FieldWrapper>
               <Field type="email" name="email" component="input" placeholder="Login" />
-            </Action>
-            <Action>
+            </FieldWrapper>
+            <FieldWrapper>
               <Field type="password" name="password" component="input" placeholder="Password" />
-            </Action>
+            </FieldWrapper>
             {isLoginPending && <ValidateMessage color="orange">Authorization</ValidateMessage>}
             {isLoginSuccess && <ValidateMessage color="green">Login was successful</ValidateMessage>}
             {loginError && <ValidateMessage color="red">{loginError}</ValidateMessage>}
