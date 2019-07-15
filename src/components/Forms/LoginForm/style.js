@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-// const STATUS_COLORS = Object.freeze({
-//   isLoginPending: "#F4AD46",
-//   isLoginSuccess: "#22AA48",
-//   loginError: "#D93B36"
-// });
-
 export const Container = styled.div`
   text-align: center;
 `;
@@ -57,7 +51,7 @@ export const SubmitButton = styled.button`
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  margin: 2px 0;
+  margin: 15px 0;
   border: solid 1px transparent;
   border-radius: 4px;
   padding: 0.5em 1em;
@@ -78,26 +72,19 @@ export const SubmitButton = styled.button`
 export const ValidatePending = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   color: orange;
 `;
 
 export const ValidateSuccess = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   color: green;
 `;
 export const ValidateError = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   color: red;
 `;
-
-// export const Validate = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: flex-start;
-//   color: ${props => STATUS_COLORS[props.color]};
-// `;

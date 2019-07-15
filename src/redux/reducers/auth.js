@@ -4,7 +4,7 @@ const initialState = {
   isLoginPending: false,
   isLoginSuccess: false,
   loginError: null
-}
+};
 
 export default function auth(state = initialState, action) {
 
@@ -12,17 +12,10 @@ export default function auth(state = initialState, action) {
     case LOGIN_PENDING:
       return { ...state, isLoginPending: true };
     case LOGIN_ERROR:
-      return { ...state,
-        loginError: action.payload,
-        isLoginPending: false
-      };
+      return { ...state, loginError: action.payload, isLoginPending: false };
 
     case LOGIN_SUCCESS:
-      return {
-        ...state,
-        isLoginSuccess: true,
-        isLoginPending: false
-      }
+      return { ...state, isLoginSuccess: true, isLoginPending: false }
 
     default:
       return state;
