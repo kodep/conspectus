@@ -3,11 +3,15 @@ export function sendLoginRequest(data) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (email === 'test@mail.com' && password === 'test') {
-        return resolve(true);
+        return resolve({
+          user: {
+            email: 'test@mail.com'
+          }
+        });
       }
       else {
         return reject('Incorrect login or password');
       }
-    }, 1000);
+    }, 500);
   })
 }

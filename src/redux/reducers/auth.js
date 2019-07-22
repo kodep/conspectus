@@ -1,9 +1,12 @@
-import { LOGIN_SUCCESS, LOGIN_PENDING, LOGIN_ERROR } from '../constants/auth';
+import { LOGIN_SUCCESS, LOGIN_PENDING, LOGIN_ERROR, SIGN_OUT } from '../constants/auth';
 
 const initialState = {
   isLoginPending: false,
   isLoginSuccess: false,
-  loginError: null
+  loginError: null,
+  user: {
+    email: ''
+  }
 };
 
 export default function auth(state = initialState, action) {
@@ -15,7 +18,10 @@ export default function auth(state = initialState, action) {
       return { ...state, loginError: action.payload, isLoginPending: false };
 
     case LOGIN_SUCCESS:
-      return { ...state, isLoginSuccess: action.payload, isLoginPending: false }
+      return { ...state, user: action.payload.user,  isLoginSuccess: true, isLoginPending: false }
+
+    case SIGN_OUT:
+      return initialState
 
     default:
       return state;

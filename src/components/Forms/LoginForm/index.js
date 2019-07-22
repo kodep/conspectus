@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Redirect } from 'react-router'
 import { Container, Form, Label, ContainerForm, FieldWrapper, SubmitButton, ValidateMessage, Title } from './style';
 
 class LoginForm extends PureComponent {
@@ -21,7 +22,7 @@ class LoginForm extends PureComponent {
               <Field type="password" name="password" component="input" placeholder="Password" />
             </FieldWrapper>
             {isLoginPending && <ValidateMessage color="orange">Authorization</ValidateMessage>}
-            {isLoginSuccess && <ValidateMessage color="green">Login was successful</ValidateMessage>}
+            {isLoginSuccess && <Redirect to="/my-meeting"/>}
             {loginError && <ValidateMessage color="red">{loginError}</ValidateMessage>}
             <SubmitButton type="submit">Sign in</SubmitButton>
           </ContainerForm>
