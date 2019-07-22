@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'
 import { Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import LoginPage from '../../components/loginPage';
 import MyMeeting from '../../scenes/MyMeeting';
-import { connect } from 'react-redux'
 import AuthorizedRoute from '../../components/AuthorizedRoute'
 
 const history = createBrowserHistory();

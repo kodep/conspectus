@@ -1,4 +1,4 @@
-import { LOGIN_PENDING, LOGIN_SUCCESS, LOGIN_ERROR } from '../constants/auth';
+import { LOGIN_PENDING, LOGIN_SUCCESS, LOGIN_ERROR, SIGN_OUT } from '../constants/auth';
 import { sendLoginRequest } from '../../api/SignIn';
 
 export function login(data) {
@@ -9,5 +9,8 @@ export function login(data) {
       .catch(err => dispatch({ type: LOGIN_ERROR, payload: err})
       )
  }
-}
+};
 
+export function logout() {
+  return dispatch => dispatch({ type: SIGN_OUT })
+}

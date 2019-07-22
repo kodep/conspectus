@@ -1,7 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import LoginForm from './Forms/LoginForm'
 import { login } from '../redux/actions/auth'
-import { connect } from 'react-redux'
 
 class LoginPage extends React.Component {
   submit = values => {
@@ -20,7 +20,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     loginAction: (data) => dispatch(login(data))
   }

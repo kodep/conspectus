@@ -1,11 +1,19 @@
 import React, { Fragment, PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { logout } from '../../redux/actions/auth';
 
 class MyMeeting extends PureComponent {
+  submit = () => {
+    const { logoutAction } = this.props
+    return logoutAction()
+  }
+
   render() {
     return (
       <Fragment>
         <header>Conspectus</header>
           <p>Hi, Test</p>
+          <button onClick={this.submit}>Sign out</button>
           <p>Next meeting: data</p>
             <div>
               <span>задача </span>
@@ -20,4 +28,10 @@ class MyMeeting extends PureComponent {
   }
 }
 
-export default MyMeeting;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutAction: () => dispatch(logout())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MyMeeting);
