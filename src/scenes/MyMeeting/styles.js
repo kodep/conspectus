@@ -57,7 +57,7 @@ export const Img = styled.img`
   padding: 0 10px 0 0;
 `;
 
-export const HeaderLable = styled.div`
+export const HeaderLabel = styled.div`
   font-family: 'Satisfy';
 `;
 
