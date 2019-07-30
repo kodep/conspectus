@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router'
-import { Container, Form, Label, ContainerForm, FieldWrapper, SubmitButton, ValidateMessage, Title } from './style';
+import { Container, Form, Label, ContainerForm, FieldWrapper, SubmitButton, ValidateMessage, Title } from './styles';
 
 class LoginForm extends PureComponent {
 
