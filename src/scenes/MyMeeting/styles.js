@@ -87,3 +87,8 @@ export const ActionButton = styled.button`
   background-color: white;
   }
 `;
+
+export const Kek = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;

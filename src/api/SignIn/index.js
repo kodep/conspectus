@@ -5,7 +5,8 @@ export function sendLoginRequest(data) {
       if (email === 'test@mail.com' && password === 'test') {
         return resolve({
           user: {
-            email: 'test@mail.com'
+            email: 'test@mail.com',
+            username: 'Vasay'
           }
         });
       }

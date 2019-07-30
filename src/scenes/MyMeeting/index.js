@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/auth';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
+import NewTaskForm from './NewTaskForm';
+import { createTask, deleteTask } from '../../redux/actions/tasks'
+import Task from '../../components/Task';
 import "react-datepicker/dist/react-datepicker.css";
-import { CalendarContainer, Header, HeaderContainer, HeaderAction, DatePicker, Body, Logo, Img, HeaderLabel, TasksList, ActionButton } from './styles'
+import { CalendarContainer, Header, HeaderContainer, HeaderAction, DatePicker, Body, Logo, Img, HeaderLabel, TasksList, ActionButton, Kek } from './styles'
 class MyMeeting extends PureComponent {
 
   state = {
@@ -26,7 +29,13 @@ class MyMeeting extends PureComponent {
 
   handleChange = date => this.setState({day: date})
 
+  handleNewTaskCreation = data => this.props.onCreateTask(data)
+
+  handleDeleteTask = id => this.props.onDeletetask(id)
+
   render() {
+    const { tasks, user } = this.props
+    console.log('sadas', this.props)
     return (
       <Fragment>
         <Header>
@@ -37,7 +46,7 @@ class MyMeeting extends PureComponent {
             </HeaderLabel>
           </Logo>
           <HeaderContainer>
-            <p>Hi, Test</p>
+            <p>Hi, {user.username}</p>
             <HeaderAction icon={faTimes} aria-hidden="true" onClick={this.handleSignOut}/>
           </HeaderContainer>
         </Header>
@@ -48,23 +57,31 @@ class MyMeeting extends PureComponent {
           </CalendarContainer>
           <hr/>
           <TasksList>
-            <span>задача </span>
-            <span>delete icon</span>
-            <br/>
-            <input></input>
-            <br/>
-            <ActionButton>Complete meeting</ActionButton>
+            { tasks && tasks.map(task => <Task key={task.id} task={task} id={task.id} />)}
+            <NewTaskForm name="New meeting" placeholder="New task..." onSubmit={this.handleNewTaskCreation} />
           </TasksList>
+          <Kek>
+            <ActionButton>Complete meeting</ActionButton>
+          </Kek>
         </Body>
       </Fragment>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    logoutAction: () => dispatch(logout())
+    tasks: state.tasks,
+    user: state.auth.user
   }
 }
 
-export default connect(null, mapDispatchToProps)(MyMeeting);
+const mapDispatchToProps = dispatch => {
+  return {
+    logoutAction: () => dispatch(logout()),
+    onCreateTask: data => dispatch(createTask(data)),
+    onDeletetask: id => dispatch(deleteTask(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyMeeting);
