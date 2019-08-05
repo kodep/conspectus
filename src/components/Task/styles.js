@@ -24,4 +24,6 @@ export const Comment = styled.div`
 
 export const DeleteIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
+  pointer-events: ${props => props.disabled ? "none" : "auto"};
+  color: ${props => props.color ? "grey" : "black"}
 `;

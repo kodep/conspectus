@@ -3,7 +3,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { connect } from 'react-redux';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import NewTaskForm from '../../scenes/MyMeeting/NewTaskForm'
-import { createTaskDescription } from '../../redux/actions/tasks'
+import { createTaskDescription, deleteTask } from '../../redux/actions/tasks'
 import { Wrapper, CheckboxWrapper, CommentForm, Comment, DeleteIcon } from './styles';
 
 class Task extends PureComponent {
@@ -26,39 +26,42 @@ class Task extends PureComponent {
     this.handleAddComment()
   }
 
-  hadleconsole = () => {
-    console.log('lolkekcheburek')
+  handleDeleteTask = () => {
+    const { onDeleteTask, id } = this.props
+    onDeleteTask({id})
   }
 
-    render() {
-      const { task, id } = this.props
-      const { isClicked, isChecked } = this.state
-      return(
-        <Fragment>
-          <Wrapper>
-            <CheckboxWrapper>
-              <Checkbox onClick={this.handleCheckboxCheck}/>
-              <p onClick={this.handleAddComment} style={this.checkboxStatus}>{task.taskName}</p>
-            </CheckboxWrapper>
-            <DeleteIcon onClick={this.hadleconsole} icon={faTrash} aria-hidden="true" style={this.disabledButton}/>
-          </Wrapper>
-          <CommentForm>
-            { (isClicked && !isChecked) && (
-                <NewTaskForm name={`task-comment-${id}`} placeholder="Task description" onSubmit={this.handleCreationComment} />
-              )
-            }
-          </CommentForm>
-          <Comment>
-            { task.comment || null }
-          </Comment>
-        </Fragment>
-      )
-    }
+  render() {
+    const { task, id } = this.props
+    const { isClicked, isChecked } = this.state
+    return(
+      <Fragment>
+        <Wrapper>
+          <CheckboxWrapper>
+            <Checkbox onClick={this.handleCheckboxCheck}/>
+            <p onClick={this.handleAddComment} style={this.checkboxStatus}>{task.taskName}</p>
+          </CheckboxWrapper>
+          {!isChecked ? <DeleteIcon onClick={this.handleDeleteTask} icon={faTrash} aria-hidden="true" style={this.disabledButton}/>
+          : <DeleteIcon icon={faTrash} disabled color/>}
+        </Wrapper>
+        <CommentForm>
+          { (isClicked && !isChecked) && (
+              <NewTaskForm name={`task-comment-${id}`} placeholder="Task description" onSubmit={this.handleCreationComment} />
+            )
+          }
+        </CommentForm>
+        <Comment>
+          { task.comment || null }
+        </Comment>
+      </Fragment>
+    )
+  }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCreateTaskDescription: data => dispatch(createTaskDescription(data))
+    onCreateTaskDescription: data => dispatch(createTaskDescription(data)),
+    onDeleteTask: id => dispatch(deleteTask(id))
   }
 }
 

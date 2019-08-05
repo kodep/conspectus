@@ -5,12 +5,11 @@ const initialState = []
 export default function task(state = initialState, action) {
   switch (action.type) {
     case TASK_CREATION_SUCCESS:
-      console.log('hello', action.payload)
       return [ ...state, { ...action.payload, comment: '' } ];
     case TASK_DESCRIPTION_CREATION_SUCCESS:
       return buildTasks(state, action.payload)
     case TASK_DELETE:
-      return [ ...state, action.filter()]
+      return state.filter(item => item.id != action.payload.id)
     default:
       return state;
   }

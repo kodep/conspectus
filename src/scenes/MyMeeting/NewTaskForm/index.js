@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { compose } from 'redux';
 import { connect } from 'react-redux'
@@ -26,7 +26,6 @@ class NewTaskForm extends PureComponent{
   }
   render() {
     const { placeholder, name } = this.props
-    console.log('props', this.props)
     return(
       <form onSubmit={this.handleFormSubmit}>
         <Field component={renderTextField} placeholder={placeholder} name={name} />

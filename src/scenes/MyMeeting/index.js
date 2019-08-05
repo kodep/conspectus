@@ -4,7 +4,7 @@ import { logout } from '../../redux/actions/auth';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 import NewTaskForm from './NewTaskForm';
-import { createTask, deleteTask } from '../../redux/actions/tasks'
+import { createTask } from '../../redux/actions/tasks'
 import Task from '../../components/Task';
 import "react-datepicker/dist/react-datepicker.css";
 import { CalendarContainer, Header, HeaderContainer, HeaderAction, DatePicker, Body, Logo, Img, HeaderLabel, TasksList, ActionButton, Kek } from './styles'
@@ -31,11 +31,8 @@ class MyMeeting extends PureComponent {
 
   handleNewTaskCreation = data => this.props.onCreateTask(data)
 
-  handleDeleteTask = id => this.props.onDeletetask(id)
-
   render() {
     const { tasks, user } = this.props
-    console.log('sadas', this.props)
     return (
       <Fragment>
         <Header>
@@ -80,7 +77,6 @@ const mapDispatchToProps = dispatch => {
   return {
     logoutAction: () => dispatch(logout()),
     onCreateTask: data => dispatch(createTask(data)),
-    onDeletetask: id => dispatch(deleteTask(id))
   }
 }
 

@@ -10,5 +10,5 @@ export function createTaskDescription(data) {
 }
 
 export function deleteTask(id) {
-  return dispatch => dispatch({ type: TASK_DELETE, id })
+  return dispatch => dispatch({ type: TASK_DELETE, payload: id })
 }

@@ -6,7 +6,7 @@ export function sendLoginRequest(data) {
         return resolve({
           user: {
             email: 'test@mail.com',
-            username: 'Vasay'
+            username: 'Sergey'
           }
         });
       }
