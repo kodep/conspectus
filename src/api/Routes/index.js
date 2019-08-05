@@ -10,18 +10,18 @@ const history = createBrowserHistory();
 
 class Navigation extends PureComponent {
   render() {
-    const { userEmail } = this.props
+    const { user } = this.props
     return (
       <Router history={history}>
         <Route exact path="/" component={LoginPage}/>
-        <AuthorizedRoute isLoggedIn={userEmail} path="/my-meeting" component={MyMeeting} />
+        <AuthorizedRoute isLoggedIn={user.email} path="/my-meeting" component={MyMeeting} />
       </Router>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  userEmail: state.auth.user.email
+  user: state.auth.user
 })
 
 export default connect(mapStateToProps)(Navigation);
